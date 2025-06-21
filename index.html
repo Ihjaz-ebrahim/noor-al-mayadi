@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor Al Mayadi Typing Services - Dubai Deira</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN with onload callback -->
+    <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js" onload="initializeLucideIcons()"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333333; /* Darker text for readability */
+            background-color: #f8fafc; /* Static, very light background for a clean, premium feel */
+        }
+        /* Custom scrollbar for aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ef4444; /* Red from logo */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626; /* Darker Red */
+        }
+
+        /* Hero section styling: Branded image with gradient overlay */
+        .hero-background {
+            /* Branded placeholder image with a blend of red and green from the logo */
+            background-image: linear-gradient(to right, rgba(239, 68, 68, 0.7), rgba(34, 197, 94, 0.7)), url('https://placehold.co/1920x800/222222/FFFFFF?text=NOOR+AL+MAYADI'); /* Placeholder with new text */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect for the image */
+            animation: headerGradientMove 90s ease infinite; /* Increased duration to 90s for very slow movement */
+        }
+
+        /* General section transition for a subtle lift effect */
+        section {
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+        }
+        section:hover {
+            transform: translateY(-8px); /* Increased lift on hover */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+        }
+
+        /* Keyframe for subtle pulse animation */
+        @keyframes pulse-once {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .animate-pulse-once {
+            animation: pulse-once 1.5s ease-out; /* Apply to elements on load/interaction */
+        }
+
+        /* Custom animation for elements fading in from bottom */
+        @keyframes slideInFromBottom {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .slide-in-bottom-animation {
+            animation: slideInFromBottom 0.8s ease-out forwards;
+        }
+
+        /* Keyframes for the header gradient background animation */
+        @keyframes headerGradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg py-4 px-4 sm:px-6 lg:px-8 rounded-b-xl backdrop-blur-sm bg-opacity-90">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2 text-2xl font-bold text-red-600 hover:text-red-800 transition-colors duration-300 transform hover:scale-105">
+                <img src="https://i.postimg.cc/TYFg84cP/COMPANY-LOGO.jpg"
+                     alt="Noor Al Mayadi Logo"
+                     class="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover shadow-md">
+                <span>Noor Al Mayadi</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-105 hover:underline underline-offset-4">About Us</a>
+                <a href="#services" class="text-gray-700 hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-105 hover:underline underline-offset-4">Services</a>
+                <a href="#contact" class="text-gray-700 hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-105 hover:underline underline-offset-4">Contact</a>
+                <a href="#hours" class="text-gray-700 hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-105 hover:underline underline-offset-4">Hours</a>
+            </div>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 text-center bg-white rounded-md shadow-inner py-2">
+            <a href="#about" class="block py-2 text-gray-600 hover:text-red-600 font-medium transition-colors duration-300 border-b border-gray-200">About Us</a>
+            <a href="#services" class="block py-2 text-gray-600 hover:text-red-600 font-medium transition-colors duration-300 border-b border-gray-200">Services</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-red-600 font-medium transition-colors duration-300 border-b border-gray-200">Contact</a>
+            <a href="#hours" class="block py-2 text-gray-600 hover:text-red-600 font-medium transition-colors duration-300 border-b border-gray-200">Hours</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Header) -->
+    <header id="hero-header" class="hero-background text-white py-28 px-4 sm:px-6 lg:px-8 text-center rounded-b-3xl shadow-xl flex items-center justify-center min-h-[500px]">
+        <div class="max-w-4xl mx-auto transform -translate-y-4 opacity-0 animate-fade-in-active">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight drop-shadow-lg animate-pulse-once">
+                Your Bridge to Seamless Documentation
+            </h1>
+            <p class="text-xl sm:text-2xl lg:text-3xl font-light opacity-95 mb-10 drop-shadow-md">
+                Noor Al Mayadi Typing: Expertise in Typing & PRO Services in the Heart of Dubai Deira.
+            </p>
+            <a href="#contact" class="inline-block bg-white text-red-700 px-10 py-5 rounded-full text-lg font-semibold shadow-xl hover:bg-red-100 transform hover:scale-105 transition-all duration-300 ring-2 ring-transparent hover:ring-white animate-bounce-once">
+                Get in Touch
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+
+        <!-- About Us Section -->
+        <section id="about" class="bg-white p-8 sm:p-10 lg:p-12 rounded-3xl shadow-2xl mb-16 opacity-0 animate-fade-in">
+            <h2 class="text-4xl font-bold text-green-700 mb-8 text-center">About Noor Al Mayadi</h2>
+            <p class="text-lg leading-relaxed text-gray-700 text-center max-w-3xl mx-auto">
+                At Noor Al Mayadi Typing, we pride ourselves on being a trusted cornerstone for individuals and businesses navigating the administrative landscape of Dubai. With dedicated expertise in comprehensive typing solutions and seamless PRO (Public Relations Officer) services, we are committed to simplifying complex processes. Our mission is to provide efficient, accurate, and reliable support for all your documentation, immigration, and business setup needs, ensuring peace of mind and swift progress.
+            </p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="bg-white p-8 sm:p-10 lg:p-12 rounded-3xl shadow-2xl mb-16 opacity-0 animate-fade-in">
+            <h2 class="text-4xl font-bold text-green-700 mb-10 text-center">Our Comprehensive Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Item 1: Typing & Document Services -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl shadow-lg border border-green-200 flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-4 bg-green-200 rounded-full mb-4">
+                        <svg class="lucide lucide-file-text w-8 h-8 text-green-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-red-800 mb-3">Typing & Document Services</h3>
+                    <ul class="list-none text-gray-700 space-y-2 text-left w-full pl-4">
+                        <li class="flex items-center"><svg class="lucide lucide-check-circle-2 w-4 h-4 mr-2 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>General Typing</li>
+                        <li class="flex items-center"><svg class="lucide lucide-check-circle-2 w-4 h-4 mr-2 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Document Clearing</li>
+                        <li class="flex items-center"><svg class="lucide lucide-check-circle-2 w-4 h-4 mr-2 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Photocopying & Printing</li>
+                    </ul>
+                </div>
+                <!-- Service Item 2: PRO & Business Setup -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl shadow-lg border border-green-200 flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-4 bg-green-200 rounded-full mb-4">
+                        <svg class="lucide lucide-briefcase w-8 h-8 text-green-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-red-800 mb-3">PRO & Business Setup</h3>
+                    <ul class="list-none text-gray-700 space-y-2 text-left w-full pl-4">
+                        <li class="flex items-center"><svg class="lucide lucide-check-circle-2 w-4 h-4 mr-2 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Business Setup Assistance</li>
+                        <li class="flex items-center"><svg class="lucide lucide-check-circle-2 w-4 h-4 mr-2 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>PRO Services</li>
+                        <li class="flex items-center"><svg class="lucide lucide-check-circle-2 w-4 h-4 mr-2 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Company Formation</li>
+                    </ul>
+                </div>
+                <!-- Service Item 3: Government & Visa Services -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl shadow-lg border border-green-200 flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300">
+                    <div class="p-4 bg-green-200 rounded-full mb-4">
+                        <svg class="lucide lucide-stamp w-8 h-8 text-green-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M14.4 18.4a2 2 0 0 0-.8 3.2H6a2 2 0 0 1-2-2V7.5a2 2 0 0 1 2-2h4.5c.9 0 1.6.8 1.6 1.6v1.6l4.6 4.6c.7.7 1.2 1.6 1.2 2.6V17a2 2 0 0 1-2 2h-1.6a2 2 0 0 0-1.6.8Z"/><path d="M22 13a2 2 0 0 1-2 2h-.6a2 2 0 0 1-1.6-.8L12 7.5V6.4c0-.9.8-1.6 1.6-1.6h1.6A2 2 0 0 1 18 4h2a2 2 0 0 1 2 2Z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-red-800 mb-3">Government & Visa Services</h3>
+                    <ul class="list-none text-gray-700 space-y-2 text-left w-full pl-4">
+                        <li class="flex items-center"><svg class="lucide lucide-check-circle-2 w-4 h-4 mr-2 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Immigration Services</li>
+                        <li class="flex items-center"><svg class="lucide lucide-check-circle-2 w-4 h-4 mr-2 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Visa Medicals & Emirates ID</li>
+                        <li class="flex items-center"><svg class="lucide lucide-check-circle-2 w-4 h-4 mr-2 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Certificate Attestation & Legalization</li>
+                        <li class="flex items-center"><svg class="lucide lucide-check-circle-2 w-4 h-4 mr-2 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Municipality & Labour Documents</li>
+                        <li class="flex items-center"><svg class="lucide lucide-check-circle-2 w-4 h-4 mr-2 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Healthcare & Translation Services</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-white p-8 sm:p-10 lg:p-12 rounded-3xl shadow-2xl mb-16 opacity-0 animate-fade-in">
+            <h2 class="text-4xl font-bold text-green-700 mb-10 text-center">Get in Touch</h2>
+            <div class="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-12">
+                <div class="flex-1 text-center lg:text-left max-w-md">
+                    <h3 class="text-3xl font-semibold text-red-800 mb-5">Reach Us</h3>
+                    <p class="text-xl mb-6 flex items-center justify-center lg:justify-start">
+                        <svg class="lucide lucide-phone w-7 h-7 mr-4 text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0  0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <strong>Phone:</strong> <a href="tel:+97142210020" class="text-red-600 hover:underline">04-2210020</a>
+                    </p>
+                    <p class="text-xl mb-6 flex items-center justify-center lg:justify-start">
+                        <svg class="lucide lucide-phone w-7 h-7 mr-4 text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7V5l-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <strong>Mobile:</strong> <a href="tel:+971563730083" class="text-red-600 hover:underline">+971 563730083</a>
+                    </p>
+                    <p class="text-xl mb-6 flex items-center justify-center lg:justify-start">
+                        <svg class="lucide lucide-mail w-7 h-7 mr-4 text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <strong>Email:</strong> <a href="mailto:nooralmayadi@gmail.com" class="text-red-600 hover:underline">nooralmayadi@gmail.com</a>
+                    </p>
+                    <p class="text-xl mb-6 flex items-center justify-center lg:justify-start">
+                        <svg class="lucide lucide-package w-7 h-7 mr-4 text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M2.5 8.67 12 14l9.5-5.33"/><path d="m7.5 19.73 9-5.15"/><path d="M12 22 2.5 16.33 12 11l9.5 5.33Z"/></svg>
+                        <strong>P.O. Box:</strong> 14552
+                    </p>
+                </div>
+                <div class="flex-1 text-center lg:text-left max-w-md">
+                    <h3 class="text-3xl font-semibold text-red-800 mb-5">Our Location</h3>
+                    <p class="text-lg mb-3">Hilal Bin Sultan Building, Ground Floor,</p>
+                    <p class="text-lg mb-3">19A Street, Al Rigga, Deira, Dubai, UAE</p>
+                    <p class="text-md text-gray-600 mb-6">Landmarks: Union Metro Station, Dubai Municipality Clinic, Red Pepper Restaurant</p>
+                    <!-- Enhanced placeholder image for map -->
+                    <img src="https://placehold.co/500x300/DCFCE7/22C55E?text=Interactive+Map+Coming+Soon" alt="Location Map Placeholder" class="mt-6 rounded-xl shadow-lg mx-auto lg:mx-0 w-full h-auto">
+                    <p class="text-sm text-gray-500 mt-2">A detailed interactive map will be integrated in future updates.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Opening Hours Section -->
+        <section id="hours" class="bg-white p-8 sm:p-10 lg:p-12 rounded-3xl shadow-2xl opacity-0 animate-fade-in">
+            <h2 class="text-4xl font-bold text-green-700 mb-10 text-center">Business Hours</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-red-50 rounded-xl overflow-hidden shadow-md mx-auto max-w-sm sm:max-w-md lg:max-w-lg">
+                    <thead class="bg-red-600 text-white">
+                        <tr>
+                            <th class="py-4 px-6 text-left text-lg font-semibold">Day</th>
+                            <th class="py-4 px-6 text-left text-lg font-semibold">Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-red-200 text-gray-700">
+                        <tr>
+                            <td class="py-3 px-6 whitespace-nowrap">Monday</td>
+                            <td class="py-3 px-6 whitespace-nowrap">09:00 AM - 10:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-6 whitespace-nowrap">Tuesday</td>
+                            <td class="py-3 px-6 whitespace-nowrap">09:00 AM - 10:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-6 whitespace-nowrap">Wednesday</td>
+                            <td class="py-3 px-6 whitespace-nowrap">09:00 AM - 10:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-6 whitespace-nowrap">Thursday</td>
+                            <td class="py-3 px-6 whitespace-nowrap">09:00 AM - 10:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-6 whitespace-nowrap">Friday</td>
+                            <td class="py-3 px-6 whitespace-nowrap">09:00 AM - 10:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-6 whitespace-nowrap">Saturday</td>
+                            <td class="py-3 px-6 whitespace-nowrap">09:00 AM - 10:00 PM</td>
+                        </tr>
+                        <tr class="bg-red-100 font-bold text-red-900">
+                            <td class="py-3 px-6 whitespace-nowrap">Sunday</td>
+                            <td class="py-3 px-6 whitespace-nowrap">Closed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8 text-center rounded-t-3xl mt-16 shadow-inner">
+        <p class="text-sm sm:text-base mb-2">&copy; <span id="current-year"></span> Noor Al Mayadi Typing Services. All rights reserved.</p>
+        <p class="text-xs sm:text-sm text-gray-400">Developed with precision and care.</p>
+    </footer>
+
+    <script>
+        // Set current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Fade-in animation for sections on scroll
+        const sections = document.querySelectorAll('section');
+        const fadeInOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px" // Start fade-in a bit before reaching the center
+        };
+
+        const fadeInObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-active');
+                    entry.target.classList.remove('opacity-0');
+                    // Add slide-in animation specifically for content within sections on first intersection
+                    entry.target.querySelectorAll('h2, p, .grid, table, h3, .flex-1 img').forEach(el => {
+                        el.style.opacity = 0; // Ensure initial state is hidden
+                        el.classList.add('slide-in-bottom-animation');
+                    });
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, fadeInOptions);
+
+        sections.forEach(section => {
+            fadeInObserver.observe(section);
+        });
+
+        // Function to initialize Lucide icons
+        function initializeLucideIcons() {
+            // Check if lucide object is defined and has createIcons method
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+            } else {
+                console.error("Lucide or lucide.createIcons is not defined. Icons might not render.");
+            }
+        }
+
+        // Add CSS for fade-in animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fade-in {
+                opacity: 0;
+            }
+            .animate-fade-in-active {
+                animation: fadeIn 0.8s ease-out forwards;
+            }
+
+            @keyframes bounce-once {
+                0%, 20%, 50%, 80%, 100% {
+                    transform: translateY(0);
+                }
+                40% {
+                    transform: translateY(-10px);
+                }
+                60% {
+                    transform: translateY(-5px);
+                }
+            }
+            .animate-bounce-once {
+                animation: bounce-once 2s ease-in-out;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
