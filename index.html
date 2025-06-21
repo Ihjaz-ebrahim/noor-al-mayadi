@@ -32,14 +32,14 @@
             background: #dc2626; /* Darker Red */
         }
 
-        /* Hero section styling: Branded image with gradient overlay */
+        /* Hero section styling: static image background */
         .hero-background {
-            /* Branded placeholder image with a blend of red and green from the logo */
-            background-image: linear-gradient(to right, rgba(239, 68, 68, 0.7), rgba(34, 197, 94, 0.7)), url('https://placehold.co/1920x800/222222/FFFFFF?text=NOOR+AL+MAYADI'); /* Placeholder with new text */
+            /* Now just the image, no gradient overlay */
+            background-image: url('https://i.postimg.cc/fRKtKcKw/mega-tall-skyscrapers-dubai.webp'); /* Updated image URL */
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Parallax effect for the image */
-            animation: headerGradientMove 90s ease infinite; /* Increased duration to 90s for very slow movement */
+            /* Removed animation: headerGradientMove 90s ease infinite; */
         }
 
         /* General section transition for a subtle lift effect */
@@ -70,12 +70,12 @@
             animation: slideInFromBottom 0.8s ease-out forwards;
         }
 
-        /* Keyframes for the header gradient background animation */
-        @keyframes headerGradientMove {
+        /* Removed keyframes for header gradient as it's no longer animated */
+        /* @keyframes headerGradientMove {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
-        }
+        } */
     </style>
 </head>
 <body>
@@ -282,7 +282,7 @@
     <!-- Footer Section -->
     <footer class="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8 text-center rounded-t-3xl mt-16 shadow-inner">
         <p class="text-sm sm:text-base mb-2">&copy; <span id="current-year"></span> Noor Al Mayadi Typing Services. All rights reserved.</p>
-        <p class="text-xs sm:text-sm text-gray-400">Developed with EMIRION TECHLAB.</p>
+        <p class="text-xs sm:text-sm text-gray-400">Developed with precision and care.</p>
     </footer>
 
     <script>
